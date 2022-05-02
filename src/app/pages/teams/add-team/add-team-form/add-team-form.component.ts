@@ -71,11 +71,12 @@ export class AddTeamFormComponent implements OnInit {
     if(this.teamAdder.valid){
       this.teamBeingBuilt.name = this.teamAdder.get("teamName")?.value;
       this.teamBeingBuilt.nationality = this.teamAdder.get("teamNation")?.value;
-      //this.playersAddedEmitter.emit([]);
       this.teamAddedEmitter.emit(this.teamBeingBuilt);
     }else{
       this.teamErrors.push("All fields are reqiured!");
     }
+    this.teamBeingBuilt = new Team();
+    this.playersAddedEmitter.emit([]);
   }
 
   back(){
@@ -92,7 +93,7 @@ export class AddTeamFormComponent implements OnInit {
     this.teamBeingBuilt.players = this.playersAddedInput;
     let playerForm = this.teamAdder.get("players");
     if(playerForm?.valid){
-      this.actualPlayerAdded = new Player("", playerForm.get("firstName")?.value, playerForm.get("lastName")?.value, playerForm.get("post")?.value, playerForm.get("nation")?.value, playerForm.get("age")?.value, playerForm.get("height")?.value);
+      this.actualPlayerAdded = new Player("", playerForm.get("firstName")?.value, playerForm.get("lastName")?.value, playerForm.get("post")?.value as string, playerForm.get("nation")?.value, playerForm.get("age")?.value, playerForm.get("height")?.value);
       if(this.teamBeingBuilt.contains(this.actualPlayerAdded)){
         return;
       }

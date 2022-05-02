@@ -1,7 +1,7 @@
 <div id="form_container" fxLayout>
     <form [formGroup]="teamAdder" (ngSubmit)="submit()" class="team_add_form">
         <div class="errors" *ngFor="let e of teamErrors">
-            <span>{{ e | error}}</span>
+            <span>{{ e }}</span>
         </div>
         <mat-form-field color="primary">
             <mat-label for="team_name">Team name:</mat-label>
@@ -18,7 +18,7 @@
         </div>
         <form class="player_add_form" formGroupName="players" (ngSubmit)="addNewPlayer()">
             <div class="errors" *ngFor="let e of errors">
-                <span>{{ e | error }}</span>
+                <span>{{ e }}</span>
             </div>
             <mat-form-field color="primary">
                 <mat-label for="first_name">First name: </mat-label>

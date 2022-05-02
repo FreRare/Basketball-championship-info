@@ -7,7 +7,7 @@
         </mat-card-header>
         <mat-card-content>
             <div class="errors" *ngIf="errors.length > 0">
-                <span *ngFor="let e of errors"><p>{{e}}</p></span>
+                <span *ngFor="let e of errors"><p>{{e | error}}</p></span>
             </div>
         </mat-card-content>
         <mat-card-actions>

@@ -59,31 +59,32 @@ export class LoginComponent implements OnInit {
       this.loggingIn = false;
       return;
     }
-    try{
-
-    await this.userAuthService
-      .login(
-        this.loginForm.get('email')?.value,
-        this.loginForm.get('password')?.value
-      ).then((user)=>{
+    try {
+      await this.userAuthService
+        .login(
+          this.loginForm.get('email')?.value,
+          this.loginForm.get('password')?.value
+        )
+        .then((user) => {
           this.loggedInUser = user as User;
-          localStorage.setItem("activeUser", JSON.stringify(this.loggedInUser));
-          console.log("Ha ezt olvasod nagy király vagy! <3");
-            this.router.navigateByUrl("/home");
-      }).catch(error=>{
-        this.loggedInUser = undefined;
-        console.error(LoginComponent.LOG_TAG, error);
-        this.loginError = error;
-      }).finally(()=>{
-        this.loggingIn = false;
-      });
-
-
-    }catch(error){
-      console.error(LoginComponent.LOG_TAG, "Invalid username-password combo!");
+          localStorage.setItem('activeUser', JSON.stringify(this.loggedInUser));
+          console.log('Ha ezt olvasod nagy király vagy! <3');
+          this.loggingIn = false;
+          this.router.navigateByUrl('/home');
+        })
+        .catch((error) => {
+          this.loggedInUser = undefined;
+          console.error(LoginComponent.LOG_TAG, error);
+          this.loginError = error;
+        })
+        .finally(() => {
+          this.loggingIn = false;
+        });
+    } catch (error) {
+      console.error(LoginComponent.LOG_TAG, 'Invalid username-password combo!');
       this.loggingIn = false;
-      localStorage.removeItem("firebaseUser");
-      localStorage.removeItem("activeUser");
+      localStorage.removeItem('firebaseUser');
+      localStorage.removeItem('activeUser');
     }
   }
 

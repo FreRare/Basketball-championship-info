@@ -55,8 +55,8 @@ export class AppComponent {
 
     //Subscription for route changes to trigger user observable
     this.routerTriggerSubscription = this.router.events
-      .pipe(filter((event) => event instanceof NavigationEnd))
-      .subscribe((events: any) => {
+      .pipe()
+      .subscribe(() => {
         //Subscription for firebase user service
         this.authSub = this.userAuthService.getLoggedInUser().subscribe({
           next: (user) => {

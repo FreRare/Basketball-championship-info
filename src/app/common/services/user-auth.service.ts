@@ -2,7 +2,7 @@ import { UserLoadService } from './user-load.service';
 import { User } from './../models/User';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { ConnectableObservable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -45,12 +45,14 @@ export class UserAuthService {
               },
               error: (err) => {
                 console.error(this.LOG_TAG, err);
+
                 reject(undefined);
               },
             });
         })
         .catch((error) => {
           console.error(this.LOG_TAG, error);
+
           reject('Invalid username-password combo!');
         });
     });

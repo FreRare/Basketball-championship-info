@@ -1,0 +1,105 @@
+$textColor: #00868B;
+$bgColor: #D1EEEE;
+$borderColor: #00868B;
+.login_form_container {
+    text-align: center;
+    height: 100vh;
+    margin: 3%;
+    padding: 2%;
+}
+
+.login_form {
+    padding: 3%;
+    text-align: center;
+}
+
+mat-form-field {
+    width: 60%;
+}
+
+mat-card {
+    text-align: center;
+    border: 4px solid $borderColor;
+    border-radius: 42px;
+    background-color: $bgColor;
+    margin: 3%;
+}
+
+mat-card-title {
+    padding: 2%;
+    color: $textColor;
+    margin: 3%;
+    width: 100%;
+    border-bottom: $borderColor solid 2px;
+    text-align: center;
+}
+
+input {
+    //border-bottom: 2px solid $bgColor;
+    width: 90%;
+    color: $textColor;
+    background-color: none;
+    background: none;
+    text-decoration: none;
+    font-style: italic;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    margin: 5px;
+}
+
+button {
+    color: $bgColor;
+    background-color: $textColor;
+    text-align: center;
+    padding: 1%;
+    border-radius: 10px;
+    border: none;
+    margin: 0 2% 0 2%;
+}
+
+.champs_main {
+    width: 100vw;
+    text-align: center;
+    padding: 3px;
+    margin-top: 2%;
+}
+
+.mathes_list {
+    width: 100vw;
+    text-align: center;
+}
+
+.match_table {
+    text-align: center;
+    position: flex;
+    margin: 2%;
+    margin-top: 1%;
+    padding: 3px;
+    border: 1px solid $textColor;
+    border-collapse: collapse;
+    width: max-content;
+}
+
+th {
+    padding: 10px;
+    color: $textColor;
+}
+
+td {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.even {
+    background-color: $textColor;
+    color: $bgColor;
+}
+
+.uneven {
+    background-color: $bgColor;
+    color: $textColor;
+}

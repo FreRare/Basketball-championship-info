@@ -37,6 +37,8 @@ export class TeamsComponent implements OnInit {
   ngOnInit(): void {
     //Getting the logged in user from the database
 
+    //this.activeUser = JSON.parse(localStorage.getItem("activeUser")as string) as User | undefined;
+
     this.userSub = this.userAuthService.getLoggedInUser().subscribe({
       next: (user) => {
         this.userLoadService.findUserById(user?.uid as string)?.subscribe({
@@ -58,7 +60,6 @@ export class TeamsComponent implements OnInit {
         });
       },
     });
-    //this.activeUser =JSON.parse(localStorage.getItem("activeUser") as string) as User;
 
     //Getting teams from the database
     this.teamSub = this.teamService.findAllTeams().subscribe({
@@ -97,6 +98,9 @@ export class TeamsComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.userLoadService.updateUser(this.activeUser as User);
+    for (let t of this.teamsOfTheChampionship) {
+      this.teamService.updateTeam(t);
+    }
     this.userSub?.unsubscribe();
     this.teamSub?.unsubscribe();
   }
@@ -111,11 +115,12 @@ export class TeamsComponent implements OnInit {
       }
     }
     this.teamsOfTheChampionship.push(ev);
-    this.teamsOfTheChampionshipToDisplay = this.teamsOfTheChampionship;
     //Adding team to datbase
-    this.teamService.createTeam(ev);
-    //Sorting teams again, there might were changes
-    this.sortTeams(this.teamsOfTheChampionship);
+    this.teamService.createTeam(ev).then(() => {
+      //Sorting teams again, there might were changes
+      this.sortTeams(this.teamsOfTheChampionship);
+      this.teamsOfTheChampionshipToDisplay = this.teamsOfTheChampionship;
+    });
   }
 
   //To search for teams
