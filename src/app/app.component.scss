@@ -1,0 +1,54 @@
+$menuTextColor: antiquewhite;
+$activeMenuColor: #D1EEEE;
+$activeMenuTextColor: #090909;
+$textColor: #00868B;
+$bgColor: #D1EEEE;
+$borderColor: #00868B;
+$warningColor: red;
+//Common styles
+.menu li:hover {
+    transform: scale(120%);
+    background-color: $activeMenuColor;
+    color: $activeMenuTextColor;
+}
+
+.normal {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    list-style: none;
+    padding: 1% 2% 1% 2%;
+    font-size: medium;
+    border-radius: 50%;
+    margin: 2%;
+    color: $menuTextColor;
+}
+
+.active {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    list-style: none;
+    padding: 1% 2% 1% 2%;
+    font-size: medium;
+    border-radius: 50%;
+    margin: 2%;
+    background-color: $activeMenuColor;
+    color: $activeMenuTextColor;
+}
+
+mat-sidenav {
+    width: 230px;
+}
+
+mat-toolbar {
+    position: relative;
+    z-index: 333;
+    color: $borderColor;
+}
+
+.menu {
+    margin-left: 12%;
+}

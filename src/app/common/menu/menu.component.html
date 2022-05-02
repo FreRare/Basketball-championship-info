@@ -1,0 +1,14 @@
+<mat-nav-list fxLayoutHeight="100%" (click)="closeSidenav()">
+    <a *ngIf="loggedInUser" mat-list-item routerLink="/home">
+        <mat-icon>home</mat-icon>Home</a>
+    <a mat-list-item routerLink="/teams">
+        <mat-icon>groups</mat-icon>Teams</a>
+    <a mat-list-item routerLink="/champs">
+        <mat-icon>emoji_events</mat-icon>Champs</a>
+    <a *ngIf="!loggedInUser" mat-list-item routerLink="/login">
+        <mat-icon>login</mat-icon>Login</a>
+    <a *ngIf="!loggedInUser" mat-list-item routerLink="/registration">
+        <mat-icon>person_add_alt</mat-icon>Sign up</a>
+    <a *ngIf="loggedInUser" mat-list-item (click)="logOutActiveUser()">
+        <mat-icon>logout</mat-icon>Log out</a>
+</mat-nav-list>

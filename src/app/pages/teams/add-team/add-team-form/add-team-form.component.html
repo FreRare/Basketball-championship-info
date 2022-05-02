@@ -1,0 +1,61 @@
+<div id="form_container" fxLayout>
+    <form [formGroup]="teamAdder" (ngSubmit)="submit()" class="team_add_form">
+        <div class="errors" *ngFor="let e of teamErrors">
+            <span>{{ e | error}}</span>
+        </div>
+        <mat-form-field color="primary">
+            <mat-label for="team_name">Team name:</mat-label>
+            <input matInput id="team_name" type="text" formControlName="teamName" placeholder="Krumpli BT" /></mat-form-field>
+
+        <mat-form-field color="primary">
+            <mat-label for="team_nation">Team nationality: </mat-label>
+            <input matInput id="team_nation" type="text" formControlName="teamNation" placeholder="Hungarian" />
+        </mat-form-field><br/>
+        <div class="player_title">
+            Players<button mat-button id="submit_player" type="button" (click)="addNewPlayer()">
+        Add player
+      </button>
+        </div>
+        <form class="player_add_form" formGroupName="players" (ngSubmit)="addNewPlayer()">
+            <div class="errors" *ngFor="let e of errors">
+                <span>{{ e | error }}</span>
+            </div>
+            <mat-form-field color="primary">
+                <mat-label for="first_name">First name: </mat-label>
+                <input matInput id="first_name" type="text" placeholder="John" formControlName="firstName" />
+            </mat-form-field>
+            <mat-form-field color="primary">
+                <mat-label for="last_name">Last name:</mat-label>
+                <input matInput id="last_name" type="text" placeholder="Doe" formControlName="lastName" />
+            </mat-form-field>
+            <mat-form-field color="primary">
+                <mat-label for="age">Age:</mat-label>
+                <input matInput id="age" type="number" placeholder="69" formControlName="age" />
+            </mat-form-field>
+            <mat-form-field color="primary">
+                <mat-label for="post">Post:</mat-label>
+                <mat-select class="post_selector" formControlName="post">
+                    <mat-option *ngFor="let pos of posts" [value]="pos">
+                        {{ pos }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field color="primary">
+                <mat-label for="player_nationality">Nationality:</mat-label>
+                <input matInput id="player_nationality" type="text" placeholder="Hungarian" formControlName="nation" />
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="height">Height:</mat-label>
+                <input matInput id="height" type="number" min="0" formControlName="height" placeholder="169 cm" />
+            </mat-form-field>
+        </form>
+        <div class="bottom_buttons">
+            <button mat-button class="submit_button" id="submit_team" type="submit">
+        Confirm
+      </button>
+            <button mat-button id="back_button" class="submit_button" (click)="back()">
+        Back
+      </button>
+        </div>
+    </form>
+</div>

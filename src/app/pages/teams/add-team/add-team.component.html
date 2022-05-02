@@ -1,0 +1,15 @@
+<div class="main_add_team">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <p class="title">Add a new team</p>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <app-list-players (removedPlayerEmitter)="removePlayer($event)" [addedPlayers]="teamAdded.players"></app-list-players>
+        </mat-card-content>
+        <mat-card-actions>
+            <app-add-team-form (playersAddedEmitter)="addPlayers($event)" (teamAddedEmitter)="addTeam($event)" [playersAddedInput]="teamAdded.players"></app-add-team-form>
+        </mat-card-actions>
+    </mat-card>
+</div>

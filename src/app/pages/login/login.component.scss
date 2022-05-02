@@ -1,0 +1,98 @@
+$textColor: #00868B;
+$bgColor: #D1EEEE;
+$borderColor: #00868B;
+.login_form_container {
+    text-align: center;
+    height: 100vh;
+    margin: 3%;
+    padding: 2%;
+}
+
+.login_form {
+    padding: 3%;
+    text-align: center;
+}
+
+mat-form-field {
+    width: 60%;
+}
+
+mat-card {
+    text-align: center;
+    border: 4px solid $borderColor;
+    border-radius: 42px;
+    background-color: $bgColor;
+    margin: 3%;
+}
+
+mat-card-title {
+    padding: 2%;
+    color: $textColor;
+    margin: 3%;
+    width: 100%;
+    border-bottom: $borderColor solid 2px;
+    text-align: center;
+}
+
+input {
+    //border-bottom: 2px solid $bgColor;
+    width: 90%;
+    color: $textColor;
+    background-color: none;
+    background: none;
+    text-decoration: none;
+    font-style: italic;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    outline: none;
+    margin: 2%;
+}
+
+.title {
+    color: $textColor;
+    text-align: center;
+    margin: 2%;
+    padding-bottom: 5%;
+    font-size: xx-large;
+    border-bottom: 2px solid $textColor;
+}
+
+.buttons_container {
+    text-align: center;
+    border-top: 2px solid $textColor;
+    padding-top: 5%;
+}
+
+button {
+    color: $bgColor;
+    background-color: $textColor;
+    text-align: center;
+    padding: 1%;
+    border-radius: 10px;
+    border: none;
+    margin: 0 2% 0 2%;
+}
+
+.loading_bar {
+    text-align: center;
+}
+
+mat-progress-bar {
+    position: flex;
+    display: flex;
+    margin: 2%;
+    padding: auto;
+}
+
+.logging {
+    text-align: center;
+    position: flex;
+    display: flex;
+}
+
+.login_errors {
+    color: red;
+    margin: 2%;
+    text-align: center;
+}

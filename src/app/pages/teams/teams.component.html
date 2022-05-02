@@ -1,0 +1,64 @@
+<div class="teams_main">
+    <div class="search_bar">
+        <form [formGroup]="searchForm" (ngSubmit)="searchTeam()">
+            <mat-form-field>
+                <mat-label>Search: </mat-label>
+                <input matInput formControlName="search" type="text" name="search" placeholder="Search for your favourite team..." class="search_bar_input" />
+            </mat-form-field>
+            <button mat-raised-button type="submit">Search</button>
+        </form>
+    </div>
+    <!--If user is admin give him a button to add new teams to the championship -->
+    <app-add-team *ngIf="activeUser?.admin" (teamAddedEmitter)="addTeam($event)"></app-add-team>
+    <div *ngIf="isThereAnyTeams" class="team_list" fxLayout="row">
+        <span><button *ngIf="activeUser?.admin" id="save_teams" (click)="save()">
+        Save
+      </button></span
+    >
+    <table class="team_list_table" fxLayout fxFlex>
+      <tr>
+        <th>Place</th>
+        <th>Name</th>
+        <th>Nationality</th>
+        <th>Score</th>
+        <th *ngIf="activeUser">Like</th>
+        <th *ngIf="activeUser?.admin">Incr</th>
+        <th *ngIf="activeUser?.admin">Decr</th>
+      </tr>
+      <tr
+        class="{{ team.name }}_info"
+        *ngFor="let team of teamsOfTheChampionshipToDisplay; let i = index"
+        [ngClass]="i % 2 === 0 ? 'even' : 'uneven'"
+      >
+        <td>{{ i + 1 }}</td>
+        <td>{{ team._name }}</td>
+        <td>{{ team._nation }}</td>
+        <td>{{ team._score }}</td>
+        <td><mat-icon *ngIf="activeUser" [ngClass]="isLiked(team) ? 'liked':'disliked'" (click)="likeTeam(team)">favorite</mat-icon></td>
+        <td *ngIf="activeUser?.admin">
+          <button
+            id="incr_score"
+            class="score_btn"
+            [ngClass]="i % 2 === 0 ? 'evenbtn' : 'unevenbtn'"
+            (click)="incrScoreOfTeam(team)"
+          >
+            +
+          </button>
+        </td>
+        <td *ngIf="activeUser?.admin">
+          <button
+            id="decr_score"
+            class="score_btn"
+            [ngClass]="i % 2 === 0 ? 'evenbtn' : 'unevenbtn'"
+            (click)="decrScoreOfTeam(team)"
+          >
+            -
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div *ngIf="!isThereAnyTeams" class="no_teams">
+    <h3>There are no results! Sorry...</h3>
+  </div>
+</div>

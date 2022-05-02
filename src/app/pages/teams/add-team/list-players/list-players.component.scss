@@ -1,0 +1,67 @@
+$textColor: #00868B;
+$bgColor: #D1EEEE;
+$borderColor: #00868B;
+$warningColor: red;
+p {
+    color: $textColor;
+    text-align: center;
+}
+
+.players_list {
+    text-align: center;
+    position: flex;
+    padding: 3px;
+    margin-top: 2%;
+}
+
+.players {
+    text-align: center;
+    margin: 5px;
+    padding: 3px;
+    border: 1px solid $textColor;
+    border-collapse: collapse;
+}
+
+th {
+    color: $textColor;
+    padding: 10px;
+}
+
+td {
+    padding: 5px;
+}
+
+.even {
+    background-color: $textColor;
+    color: $bgColor;
+}
+
+.uneven {
+    background-color: $bgColor;
+    color: $textColor;
+}
+
+.remove_player_button {
+    float: right;
+    border: 1px solid $textColor;
+    padding: 1%;
+}
+
+@media only screen and (min-width: 768px) {
+    p {
+        font-size: medium;
+    }
+    .players_list {
+        float: right;
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    p {
+        font-size: small;
+    }
+    .players_list {
+        width: 100%;
+    }
+}

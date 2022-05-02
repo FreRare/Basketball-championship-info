@@ -1,0 +1,18 @@
+<div *ngIf="addedPlayers.length > 0" class="players_list">
+    <p>Players of the team:</p>
+    <table class="players">
+        <tr class="header">
+            <th>Name</th>
+            <th>Post</th>
+            <th>Nationality</th>
+            <th>Height</th>
+        </tr>
+        <tr *ngFor="let player of addedPlayers; let i = index" [ngClass]="i % 2 === 0 ? 'even':'uneven'">
+            <td>{{ player.fullName }}</td>
+            <td>{{ player.post.split(" ")[0] }}</td>
+            <td>{{ player.nation }}</td>
+            <td>{{ player.height + " cm" }}</td>
+            <td><button mat-raised-button id="remove_player_button" (click)="removePlayer(player)">Remove</button></td>
+        </tr>
+    </table>
+</div>

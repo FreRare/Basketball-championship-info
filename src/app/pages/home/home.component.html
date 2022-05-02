@@ -1,0 +1,23 @@
+<div class="home_main">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{activeUser?.fullName}}</mat-card-title>
+            <mat-card-subtitle>Profile</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>Liked teams:</p>
+            <mat-list *ngFor="let t of activeUser?.likes">
+                <mat-list-item>
+                    <table>
+                        <tr>
+                            <th>{{t}}</th>
+                            <th (click)="dislike(t)">
+                                <mat-icon>favorite</mat-icon>
+                            </th>
+                        </tr>
+                    </table>
+                </mat-list-item>
+            </mat-list>
+        </mat-card-content>
+    </mat-card>
+</div>
