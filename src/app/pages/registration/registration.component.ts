@@ -91,12 +91,12 @@ export class RegistrationComponent implements OnInit {
           console.log('User registrated successfully!');
           this.router.navigateByUrl('/login');
         }).catch(err => {
-          console.log(RegistrationComponent.LOG_TAG, "userLoad", err);
+          console.error(RegistrationComponent.LOG_TAG, "userLoad: ", err);
           this.errors.push(err.toString());
         });
       })
       .catch((error) => {
-        console.log(RegistrationComponent.LOG_TAG, error);
+        console.error(RegistrationComponent.LOG_TAG, error);
 
       });
     }catch(error){

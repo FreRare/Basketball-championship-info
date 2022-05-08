@@ -15,11 +15,10 @@ const routes: Routes = [
   {
     path: 'login',
     loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule),
-    //canActivate: [UserGuard]
   },
   {
     path: 'registration',
-    loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule)
+    loadChildren: () => import('./pages/registration/registration.module').then(m => m.RegistrationModule),
   },
   {
     path: 'champs',

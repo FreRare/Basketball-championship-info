@@ -29,7 +29,6 @@ export class ListPlayersComponent implements OnInit {
   //Removes the player from the list and emits it also
   removePlayer(player: Player){
     this.addedPlayers = this.addedPlayers.filter(x => !x.areEquals(player));
-    console.log(ListPlayersComponent.LOG_TAG, " players after remove: ", this.addedPlayers);
     this.removedPlayerEmitter.emit(player);
   }
 

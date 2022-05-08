@@ -1,6 +1,4 @@
-import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Pipe, PipeTransform } from '@angular/core';
-import { Firestore } from '@angular/fire/firestore';
 
 @Pipe({
   name: 'timestampConverter'

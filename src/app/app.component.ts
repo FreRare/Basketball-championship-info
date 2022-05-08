@@ -103,6 +103,7 @@ export class AppComponent {
     this.routerSubscription?.unsubscribe();
     this.routerTriggerSubscription?.unsubscribe();
     this.authSub?.unsubscribe();
+    localStorage.clear();
   }
 
   openSidenav(sidenav: MatSidenav) {

@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     this.location.back();
   }
 
-  async login() {
+  login() {
     //Logging in user
     //Setting flag to true
     this.loggingIn = true;
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
       return;
     }
     try {
-      await this.userAuthService
+      this.userAuthService
         .login(
           this.loginForm.get('email')?.value,
           this.loginForm.get('password')?.value
@@ -90,5 +90,6 @@ export class LoginComponent implements OnInit {
 
   ngOnDestroy(): void {
     this.userSub?.unsubscribe();
+    this.loggingIn = false;
   }
 }

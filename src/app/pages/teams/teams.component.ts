@@ -217,7 +217,6 @@ export class TeamsComponent implements OnInit {
     } else {
       if (this.activeUser) {
         this.activeUser.likes[this.activeUser.likes.length] = team.name;
-        console.log(TeamsComponent.LOG_TAG, team.name, ' Team liked!');
       }
       //this.userLoadService.updateUser(this.activeUser as User);
     }
