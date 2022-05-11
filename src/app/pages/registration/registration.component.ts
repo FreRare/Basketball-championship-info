@@ -92,12 +92,12 @@ export class RegistrationComponent implements OnInit {
           this.router.navigateByUrl('/login');
         }).catch(err => {
           console.error(RegistrationComponent.LOG_TAG, "userLoad: ", err);
-          this.errors.push(err.toString());
+          this.errors.push("Email is already in use!");
         });
       })
       .catch((error) => {
         console.error(RegistrationComponent.LOG_TAG, error);
-
+        this.errors.push("Email is already in use!");
       });
     }catch(error){
       console.error(RegistrationComponent.LOG_TAG, error);
