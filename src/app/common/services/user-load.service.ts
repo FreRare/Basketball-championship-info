@@ -25,6 +25,10 @@ export class UserLoadService {
       .doc(id)
       .valueChanges();
   }
+  
+  finUserByName(name: string){
+    return this.afs.collection<User>(this.collectionName, ref => ref.where("_name" == name)).valueChages();
+  }
 
   findAllUsers() {
     return this.afs.collection<User>(this.collectionName).valueChanges();
